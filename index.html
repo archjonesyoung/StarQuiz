@@ -436,12 +436,12 @@
               <div class="bg-black/50 border border-white/10 px-3.5 py-2 rounded-xl font-bold flex items-center gap-2">
                 <span class="text-amber-400 text-base" id="currency-icon">🪙</span>
                 <span class="text-xs text-slate-400 font-bold" id="currency-label">Blox 金幣：</span>
-                <span id="stars-count" class="text-amber-300 text-lg font-black">45</span>
+                <span id="stars-count" class="text-amber-300 text-lg font-black">0</span>
               </div>
               <div class="bg-black/50 border border-white/10 px-3.5 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer hover:border-amber-400 transition" onclick="openCheckInModal()">
                 <span>🔥</span>
                 <span class="text-xs text-slate-400 font-bold">連勝天數：</span>
-                <span id="streak-count" class="text-orange-400 font-black">3 天</span>
+                <span id="streak-count" class="text-orange-400 font-black">0 天</span>
               </div>
               <div class="bg-black/50 border border-white/10 px-3.5 py-2 rounded-xl font-bold flex items-center gap-2">
                 <span>🎯</span>
@@ -451,12 +451,12 @@
               <div class="bg-black/50 border border-white/10 px-3.5 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer hover:border-yellow-400 transition group" onclick="openHonorModal('awards')">
                 <span class="text-yellow-400 group-hover:scale-110 transition-transform">🏆</span>
                 <span class="text-xs text-slate-400 font-bold">學校榮譽：</span>
-                <span id="banner-awards-count" class="text-yellow-300 font-black">3 項</span>
+                <span id="banner-awards-count" class="text-yellow-300 font-black">0 項</span>
               </div>
               <div class="bg-black/50 border border-white/10 px-3.5 py-2 rounded-xl font-bold flex items-center gap-2 cursor-pointer hover:border-sky-400 transition group" onclick="openHonorModal('exams')">
                 <span class="text-sky-400 group-hover:scale-110 transition-transform">📈</span>
                 <span class="text-xs text-slate-400 font-bold">上次段考：</span>
-                <span id="banner-exam-avg" class="text-sky-300 font-black">97.8 分</span>
+                <span id="banner-exam-avg" class="text-sky-300 font-black">暫無紀錄</span>
               </div>
             </div>
             
@@ -485,11 +485,11 @@
               <span class="text-base animate-bounce" id="rank-badge-icon">⚡</span>
               <div>
                 <div class="flex items-center justify-between gap-3 text-[10px] text-slate-300">
-                  <span id="rank-badge-title" class="font-black text-sky-400">ROBLOX MASTER • LV.6</span>
-                  <span id="rank-badge-exp" class="font-bold text-amber-300">EXP 980/1000</span>
+                  <span id="rank-badge-title" class="font-black text-sky-400">ROBLOX 新手 • LV.0</span>
+                  <span id="rank-badge-exp" class="font-bold text-amber-300">答對 0 / 30 題</span>
                 </div>
                 <div class="w-36 h-1.5 bg-black/50 rounded-full overflow-hidden mt-0.5 border border-white/10">
-                  <div id="rank-badge-bar" class="h-full bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full transition-all duration-500" style="width: 95%;"></div>
+                  <div id="rank-badge-bar" class="h-full bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full transition-all duration-500" style="width: 0%;"></div>
                 </div>
               </div>
             </div>
@@ -725,15 +725,15 @@
         <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mb-6">
           <div class="bg-black/30 border border-white/10 rounded-xl p-3">
             <div class="text-xs text-amber-400 font-bold mb-1">獲得獎勵</div>
-            <div id="result-stars" class="text-2xl font-black text-amber-300">+3 🪙</div>
+            <div id="result-stars" class="text-2xl font-black text-amber-300">+0 🪙</div>
           </div>
           <div class="bg-black/30 border border-white/10 rounded-xl p-3">
             <div class="text-xs text-sky-400 font-bold mb-1">精準度</div>
-            <div id="result-accuracy" class="text-2xl font-black text-sky-300">80%</div>
+            <div id="result-accuracy" class="text-2xl font-black text-sky-300">0%</div>
           </div>
           <div class="bg-black/30 border border-white/10 rounded-xl p-3">
             <div class="text-xs text-purple-400 font-bold mb-1">通關題數</div>
-            <div id="result-correct-count" class="text-2xl font-black text-purple-300">4 / 5</div>
+            <div id="result-correct-count" class="text-2xl font-black text-purple-300">0 / 30</div>
           </div>
         </div>
 
@@ -863,7 +863,7 @@
         <div>
           <div class="text-xs font-bold text-amber-100">當前連續登入紀錄</div>
           <div class="text-2xl md:text-3xl font-black flex items-center gap-2 mt-0.5">
-            <span>🔥 連續</span> <span id="modal-streak-days">3</span> <span>天</span>
+            <span>🔥 連續</span> <span id="modal-streak-days">0</span> <span>天</span>
           </div>
         </div>
         <div class="text-right">
@@ -916,7 +916,7 @@
         <div class="flex items-center gap-3">
           <div class="bg-black/30 border border-white/10 px-3 py-1.5 rounded-xl text-xs font-black text-amber-400 flex items-center gap-1.5">
             <span>🪙 目前擁有：</span>
-            <span id="rewards-modal-stars" class="text-amber-300 text-base font-black">45</span>
+            <span id="rewards-modal-stars" class="text-amber-300 text-base font-black">0</span>
           </div>
           <button onclick="closeRewardsModal()" class="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 text-slate-300 flex items-center justify-center font-black">
             ✕
@@ -995,12 +995,19 @@
       </div>
 
       <div class="flex items-center gap-2 mb-4 bg-black/40 p-1 rounded-xl border border-white/10">
+        <button id="tab-honor-quizzes" onclick="switchHonorTab('quizzes')" class="flex-1 py-2 rounded-lg font-black text-xs md:text-sm text-slate-400 hover:text-white transition">
+          📝 測驗紀錄 (<span id="tab-quiz-count">0</span>)
+        </button>
         <button id="tab-honor-exams" onclick="switchHonorTab('exams')" class="flex-1 py-2 rounded-lg font-black text-xs md:text-sm bg-white/20 text-white shadow-sm transition flex items-center justify-center gap-1.5">
-          <span>📈</span> 段考定期評量成績單 (<span id="tab-exam-count">2</span>)
+          <span>📈</span> 段考定期評量成績單 (<span id="tab-exam-count">0</span>)
         </button>
         <button id="tab-honor-awards" onclick="switchHonorTab('awards')" class="flex-1 py-2 rounded-lg font-black text-xs md:text-sm text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5">
-          <span>🎖️</span> 學校得獎與榮譽榜 (<span id="tab-award-count">3</span>)
+          <span>🎖️</span> 學校得獎與榮譽榜 (<span id="tab-award-count">0</span>)
         </button>
+      </div>
+
+      <div id="honor-view-quizzes" class="overflow-y-auto space-y-3 flex-1 pr-1 hidden">
+        <div id="quizzes-list" class="space-y-3"></div>
       </div>
 
       <div id="honor-view-exams" class="overflow-y-auto space-y-4 flex-1 pr-1">
@@ -1258,6 +1265,8 @@
     let currentUnitKey = null;
     let currentQuestionIndex = 0;
     let currentQuestions = [];
+    let currentQuizName = '';
+    let quizResultSaved = false;
     let userAnswers = [];
     let sessionStars = 0;
     let viewingStudyCardUnit = null; // 當前正在檢視的學習卡單元
@@ -1267,12 +1276,16 @@
     let melodySkinIndex = 0;  // Melody 外觀神裝樣式：0=萌兔經典, 1=彩虹仙子翅膀, 2=璀璨星光公主
 
     // ===== 學生資料儲存與持久化管理 =====
+    const STATS_STORAGE_KEY = 'star_quiz_island_stats_v4';
     const DEFAULT_STUDENT_STATS = {
       bryant: {
         photo: null,
-        stars: 45,
-        streakDays: 3,
+        stars: 0,
+        totalCorrect: 0,
+        streakDays: 0,
         checkedToday: false,
+        checkInDates: [],
+        lastCheckInDate: null,
         mistakes: [],
         rewards: [
           { id: 'r_b_1', title: '週五放鬆玩 iPad 1 小時', icon: '🎮', cost: 30 },
@@ -1281,54 +1294,18 @@
           { id: 'r_b_4', title: '假日下午自選家庭戶外行程', icon: '🚴', cost: 60 }
         ],
         vouchers: [],
-        exams: [
-          {
-            id: 'ex_b_1',
-            title: '六年級上學期第二次定期評量',
-            date: '2026/01',
-            scores: { chinese: 96, english: 98, math: 100, science: 97, social: 98 },
-            comment: '數學細心考取滿分！全科表現優異，繼續保持沉著自信！'
-          },
-          {
-            id: 'ex_b_2',
-            title: '六年級上學期第一次定期評量',
-            date: '2025/11',
-            scores: { chinese: 95, english: 96, math: 98, science: 95, social: 96 },
-            comment: '五科皆達特優標準，各科解題思路清晰！'
-          }
-        ],
-        awards: [
-          {
-            id: 'aw_b_1',
-            title: '全校模範生代表榮譽獎狀',
-            icon: '🏆',
-            semester: '六年級上學期',
-            issuer: '學校教務處與校長室',
-            category: '品德與學習模範'
-          },
-          {
-            id: 'aw_b_2',
-            title: '全市中小學自然科學展覽特優',
-            icon: '🔬',
-            semester: '六年級上學期',
-            issuer: '臺中市政府教育局',
-            category: '學科競賽與專案'
-          },
-          {
-            id: 'aw_b_3',
-            title: '校園資訊科技與程式邏輯賽第一名',
-            icon: '💻',
-            semester: '五年級下學期',
-            issuer: '資訊教育推動組',
-            category: '資訊與邏輯'
-          }
-        ]
+        exams: [],
+        awards: [],
+        quizHistory: []
       },
       melody: {
         photo: null,
-        stars: 38,
-        streakDays: 4,
+        stars: 0,
+        totalCorrect: 0,
+        streakDays: 0,
         checkedToday: false,
+        checkInDates: [],
+        lastCheckInDate: null,
         mistakes: [],
         rewards: [
           { id: 'r_m_1', title: '一次免洗碗', icon: '🍽️', cost: 15 },
@@ -1337,48 +1314,9 @@
           { id: 'r_m_4', title: '假日去兒童遊樂園暢玩', icon: '🎡', cost: 55 }
         ],
         vouchers: [],
-        exams: [
-          {
-            id: 'ex_m_1',
-            title: '四年級上學期第二次定期評量',
-            date: '2026/01',
-            scores: { chinese: 98, english: 96, math: 95, science: 98, social: 97 },
-            comment: '國語文采飛揚、自然實驗觀念極佳！字跡工整端正！'
-          },
-          {
-            id: 'ex_m_2',
-            title: '四年級上學期第一次定期評量',
-            date: '2025/11',
-            scores: { chinese: 96, english: 95, math: 94, science: 96, social: 95 },
-            comment: '學習態度積極認真，答題細心有進步！'
-          }
-        ],
-        awards: [
-          {
-            id: 'aw_m_1',
-            title: '國語文硬筆書法朗讀特優',
-            icon: '👑',
-            semester: '四年級上學期',
-            issuer: '學校教務處',
-            category: '語文才藝'
-          },
-          {
-            id: 'aw_m_2',
-            title: '班級熱心服務小天使獎章',
-            icon: '🌸',
-            semester: '四年級上學期',
-            issuer: '學務處生活輔導組',
-            category: '日常品德與熱心'
-          },
-          {
-            id: 'aw_m_3',
-            title: '校園兒童創意水彩畫展佳作',
-            icon: '🎨',
-            semester: '三年級下學期',
-            issuer: '美勞與藝術教育委員會',
-            category: '美術創意'
-          }
-        ]
+        exams: [],
+        awards: [],
+        quizHistory: []
       }
     };
 
@@ -1386,7 +1324,10 @@
 
     function loadStats() {
       try {
-        const saved = localStorage.getItem('star_quiz_island_stats_v3');
+        // v4 從零開始；舊的範例與練習紀錄不再載入。
+        localStorage.removeItem('star_quiz_island_stats_v3');
+        localStorage.removeItem('star_quiz_seen_v1');
+        const saved = localStorage.getItem(STATS_STORAGE_KEY);
         if (saved) {
           const parsed = JSON.parse(saved);
           if (parsed && parsed.bryant && parsed.melody) {
@@ -1409,7 +1350,7 @@
               }
             });
             if (rewardsChanged) {
-              localStorage.setItem('star_quiz_island_stats_v3', JSON.stringify(studentStats));
+              localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(studentStats));
             }
             return;
           }
@@ -1485,7 +1426,7 @@
 
     function saveStats() {
       try {
-        localStorage.setItem('star_quiz_island_stats_v3', JSON.stringify(studentStats));
+        localStorage.setItem(STATS_STORAGE_KEY, JSON.stringify(studentStats));
       } catch (e) {
         console.warn('儲存歷程存檔失敗', e);
       }
@@ -2632,12 +2573,12 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         if (rankBadge) {
           rankBadge.className = 'mb-2 px-3 py-1.5 rounded-xl bg-black/60 border border-sky-500/30 backdrop-blur-md shadow-md flex items-center gap-2 text-xs font-black text-white';
           rankIcon.textContent = '⚡';
-          rankTitle.textContent = 'ROBLOX DUO MASTERS • LV.6';
+          rankTitle.textContent = 'ROBLOX 新手 • LV.0';
           rankTitle.className = 'font-black text-sky-400';
-          rankExp.textContent = 'EXP 980 / 1000';
+          rankExp.textContent = '答對 0 / 30 題';
           rankExp.className = 'font-bold text-amber-300';
           rankBar.className = 'h-full bg-gradient-to-r from-sky-400 to-emerald-400 rounded-full transition-all duration-500';
-          rankBar.style.width = '95%';
+          rankBar.style.width = '0%';
         }
 
         if (btnSkinLabel) btnSkinLabel.textContent = '雙人神裝';
@@ -2656,12 +2597,12 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         if (rankBadge) {
           rankBadge.className = 'mb-2 px-3 py-1.5 rounded-full bg-white/90 border-2 border-amber-300 shadow-md flex items-center gap-2 text-xs font-black text-slate-800';
           rankIcon.textContent = '👑';
-          rankTitle.textContent = '【巔峰鳳凰蛋雙星】• LV.4';
+          rankTitle.textContent = '【蛋仔新手】• LV.0';
           rankTitle.className = 'font-black text-rose-500';
-          rankExp.textContent = '萌力值 MAX 💖';
+          rankExp.textContent = '答對 0 / 30 題';
           rankExp.className = 'font-bold text-amber-600';
           rankBar.className = 'h-full bg-gradient-to-r from-pink-400 to-amber-400 rounded-full transition-all duration-500';
-          rankBar.style.width = '98%';
+          rankBar.style.width = '0%';
         }
 
         if (btnSkinLabel) btnSkinLabel.textContent = '雙星換裝';
@@ -2669,6 +2610,21 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         if (btnPetIcon) btnPetIcon.textContent = '🧸';
         if (btnPetLabel) btnPetLabel.textContent = '摸摸萌友';
       }
+      updateRankProgress();
+    }
+
+    function updateRankProgress() {
+      const correct = Math.max(0, studentStats[currentStudent].totalCorrect || 0);
+      const level = Math.floor(correct / 30);
+      const progress = correct % 30;
+      const title = document.getElementById('rank-badge-title');
+      const exp = document.getElementById('rank-badge-exp');
+      const bar = document.getElementById('rank-badge-bar');
+      if (title) title.textContent = currentStudent === 'bryant'
+        ? `ROBLOX ${level === 0 ? '新手' : '探險家'} • LV.${level}`
+        : `【蛋仔${level === 0 ? '新手' : '探險家'}】• LV.${level}`;
+      if (exp) exp.textContent = `答對 ${progress} / 30 題`;
+      if (bar) bar.style.width = `${Math.round(progress / 30 * 100)}%`;
     }
 
     // Web Audio 音效產生器
@@ -3243,6 +3199,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       subjectKeys.forEach(subjectKey => {
         const meta = SUBJECT_METADATA[subjectKey];
         if (!meta) return;
+        const unitCount = CURRICULUM_DATA[currentStudent]?.subjects?.[subjectKey]?.units?.length || 0;
 
         const card = document.createElement('div');
         if (isBryant) {
@@ -3251,11 +3208,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-3xl p-2 rounded-xl bg-black/40 border border-white/10 group-hover:scale-110 transition-transform">${meta.icon}</span>
-                <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">👍 ${meta.rating}</span>
+                <span class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">📚 ${unitCount} 單元</span>
               </div>
               <div class="text-[11px] font-black text-slate-400 mb-1 flex items-center gap-1">
-                <span>👥 ${meta.players} 在線</span>
-                <span>•</span>
                 <span class="text-sky-400">${meta.badge}</span>
               </div>
               <h4 class="font-black text-base md:text-lg mb-2 text-white group-hover:text-emerald-300 transition-colors leading-snug">
@@ -3275,11 +3230,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
             <div>
               <div class="flex items-center justify-between mb-3">
                 <span class="text-3xl p-2 rounded-2xl bg-amber-100 group-hover:scale-110 transition-transform">${meta.icon}</span>
-                <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">⭐ 4.9</span>
+                <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-amber-100 text-amber-900 border border-amber-300">📚 ${unitCount} 單元</span>
               </div>
               <div class="text-[11px] font-bold text-amber-700 mb-1 flex items-center gap-1">
-                <span>🐣 ${meta.players} 蛋仔</span>
-                <span>•</span>
                 <span class="text-rose-500">${meta.eggyBadge}</span>
               </div>
               <h4 class="font-black text-base md:text-lg mb-2 text-slate-900 group-hover:text-amber-600 transition-colors leading-snug">
@@ -3535,6 +3488,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       AudioEngine.playClick();
       currentUnitKey = unit.id;
       currentQuestions = [...unit.questions];
+      currentQuizName = unit.name || '練習測驗';
+      quizResultSaved = false;
       currentQuestionIndex = 0;
       userAnswers = [];
       sessionStars = 0;
@@ -3569,7 +3524,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       document.getElementById('quiz-progress-percent').textContent = `${pct}%`;
       document.getElementById('quiz-progress-bar').style.width = `${pct}%`;
 
-      document.getElementById('question-unit-tag').textContent = `STAGE 0${current}`;
+      document.getElementById('question-unit-tag').textContent = `STAGE ${String(current).padStart(2, '0')}`;
       document.getElementById('question-difficulty-tag').textContent = isBryant 
         ? '難度：六年級 Blox 大師題' 
         : '難度：四年級 蛋仔衝刺題';
@@ -3629,6 +3584,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (isCorrect) {
         sessionStars += 1;
         studentStats[currentStudent].stars += 1;
+        studentStats[currentStudent].totalCorrect = (studentStats[currentStudent].totalCorrect || 0) + 1;
         studentStats[currentStudent].mistakes = (studentStats[currentStudent].mistakes || []).filter(m => m.id !== q.id);
         AudioEngine.playCorrect();
         triggerMiniConfetti();
@@ -3809,6 +3765,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (streakEl) streakEl.textContent = `${stats.streakDays} 天`;
       if (mistakesEl) mistakesEl.textContent = `${stats.mistakes.length} 題`;
       if (currencyIcon) currencyIcon.textContent = isBryant ? '🪙' : '🟡';
+      updateRankProgress();
 
       const awardsBadge = document.getElementById('banner-awards-count');
       const examAvgBadge = document.getElementById('banner-exam-avg');
@@ -3832,6 +3789,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     function showResults() {
+      if (quizResultSaved) return;
+      quizResultSaved = true;
       AudioEngine.playFanfare();
       triggerGrandConfetti();
 
@@ -3842,6 +3801,16 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const correctCount = userAnswers.filter(a => a.isCorrect).length;
       const wrongCount = total - correctCount;
       const accuracy = Math.round((correctCount / total) * 100);
+
+      const history = studentStats[currentStudent].quizHistory || (studentStats[currentStudent].quizHistory = []);
+      history.unshift({
+        completedAt: new Date().toISOString(),
+        subject: SUBJECT_METADATA[currentSubjectKey]?.name || '綜合練習',
+        unitName: currentQuizName,
+        correct: correctCount,
+        total
+      });
+      saveStats();
 
       const isBryant = currentStudent === 'bryant';
       const studentName = isBryant ? 'Bryant' : 'Melody';
@@ -4388,20 +4357,59 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       AudioEngine.playClick();
       currentHonorTab = tab;
       const isExams = tab === 'exams';
+      const isAwards = tab === 'awards';
+      const isQuizzes = tab === 'quizzes';
 
       document.getElementById('honor-view-exams').classList.toggle('hidden', !isExams);
-      document.getElementById('honor-view-awards').classList.toggle('hidden', isExams);
+      document.getElementById('honor-view-awards').classList.toggle('hidden', !isAwards);
+      document.getElementById('honor-view-quizzes').classList.toggle('hidden', !isQuizzes);
+
+      document.getElementById('tab-honor-quizzes').className = isQuizzes
+        ? 'flex-1 py-2 rounded-lg font-black text-xs md:text-sm bg-white/20 text-white shadow-sm transition'
+        : 'flex-1 py-2 rounded-lg font-black text-xs md:text-sm text-slate-400 hover:text-white transition';
 
       document.getElementById('tab-honor-exams').className = isExams
         ? 'flex-1 py-2 rounded-lg font-black text-xs md:text-sm bg-white/20 text-white shadow-sm transition flex items-center justify-center gap-1.5'
         : 'flex-1 py-2 rounded-lg font-black text-xs md:text-sm text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5';
 
-      document.getElementById('tab-honor-awards').className = !isExams
+      document.getElementById('tab-honor-awards').className = isAwards
         ? 'flex-1 py-2 rounded-lg font-black text-xs md:text-sm bg-white/20 text-white shadow-sm transition flex items-center justify-center gap-1.5'
         : 'flex-1 py-2 rounded-lg font-black text-xs md:text-sm text-slate-400 hover:text-white transition flex items-center justify-center gap-1.5';
 
+      renderQuizHistoryUI();
       renderExamsUI();
       renderAwardsUI();
+    }
+
+    function renderQuizHistoryUI() {
+      const history = studentStats[currentStudent].quizHistory || [];
+      document.getElementById('tab-quiz-count').textContent = history.length;
+      const list = document.getElementById('quizzes-list');
+      list.replaceChildren();
+      if (!history.length) {
+        const empty = document.createElement('p');
+        empty.className = 'text-center py-10 text-slate-400 text-sm';
+        empty.textContent = '尚無測驗紀錄。完成一回測驗後，成績會自動記在這台裝置。';
+        list.appendChild(empty);
+        return;
+      }
+      history.forEach(result => {
+        const card = document.createElement('div');
+        card.className = 'rounded-xl border border-white/15 bg-black/25 p-4 flex flex-wrap justify-between gap-3';
+        const detail = document.createElement('div');
+        const name = document.createElement('strong');
+        name.className = 'block text-sm text-white';
+        name.textContent = `${result.subject}・${result.unitName}`;
+        const date = document.createElement('span');
+        date.className = 'text-xs text-slate-400';
+        date.textContent = new Date(result.completedAt).toLocaleString('zh-TW', { timeZone: 'Asia/Taipei' });
+        detail.append(name, date);
+        const score = document.createElement('strong');
+        score.className = 'text-amber-300 text-base';
+        score.textContent = `${result.correct} / ${result.total} 題（${Math.round(result.correct / result.total * 100)}%）`;
+        card.append(detail, score);
+        list.appendChild(card);
+      });
     }
 
     function renderExamsUI() {
@@ -4761,6 +4769,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 <script src="data/melody-math.js"></script>
 <script src="data/melody-science.js"></script>
 <script src="data/melody-social.js"></script>
+<script src="data/extra-questions.js"></script>
+<script src="data/math-extra-questions.js"></script>
 <script src="data/exam-ranges.js"></script>
 </body>
 </html>

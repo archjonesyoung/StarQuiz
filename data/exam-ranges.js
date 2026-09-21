@@ -10,9 +10,9 @@
   const STORAGE = 'star_quiz_exam_ranges_v1';
   let mode = 'exam', practice = null;
   let bank = {}, seen = {}, busy = false, pending = null;
-  try { bank = JSON.parse(localStorage.getItem('star_quiz_new_bank_v1') || '{}'); seen = JSON.parse(localStorage.getItem('star_quiz_seen_v1') || '{}'); } catch (_) {}
+  try { bank = JSON.parse(localStorage.getItem('star_quiz_new_bank_v1') || '{}'); seen = JSON.parse(localStorage.getItem('star_quiz_seen_v2') || '{}'); } catch (_) {}
   function bankKey() { return `${currentStudent}:115上:${selectedAIGenSubject}`; }
-  function persistBank() { try { localStorage.setItem('star_quiz_new_bank_v1', JSON.stringify(bank)); localStorage.setItem('star_quiz_seen_v1', JSON.stringify(seen)); } catch (_) { alert('瀏覽器儲存空間不足，新題或作答紀錄無法保存。'); } }
+  function persistBank() { try { localStorage.setItem('star_quiz_new_bank_v1', JSON.stringify(bank)); localStorage.setItem('star_quiz_seen_v2', JSON.stringify(seen)); } catch (_) { alert('瀏覽器儲存空間不足，新題或作答紀錄無法保存。'); } }
   let ranges = {};
   try { ranges = JSON.parse(localStorage.getItem(STORAGE) || '{}') || {}; } catch (_) {}
   const originalOpen = openAIGeneratorModal, originalSelect = selectAIGenSubject;
