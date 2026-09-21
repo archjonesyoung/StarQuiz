@@ -1275,9 +1275,9 @@
         checkedToday: false,
         mistakes: [],
         rewards: [
-          { id: 'r_b_1', title: '週五放鬆玩 Switch 30 分鐘', icon: '🎮', cost: 20 },
+          { id: 'r_b_1', title: '週五放鬆玩 iPad 1 小時', icon: '🎮', cost: 30 },
           { id: 'r_b_2', title: '選一本喜歡的科學漫畫/小說', icon: '📚', cost: 35 },
-          { id: 'r_b_3', title: '一週免洗碗', icon: '🍽️', cost: 25 },
+          { id: 'r_b_3', title: '一次免洗碗', icon: '🍽️', cost: 15 },
           { id: 'r_b_4', title: '假日下午自選家庭戶外行程', icon: '🚴', cost: 60 }
         ],
         vouchers: [],
@@ -1331,7 +1331,7 @@
         checkedToday: false,
         mistakes: [],
         rewards: [
-          { id: 'r_m_1', title: '一週免洗碗', icon: '🍽️', cost: 15 },
+          { id: 'r_m_1', title: '一次免洗碗', icon: '🍽️', cost: 15 },
           { id: 'r_m_2', title: '跟媽媽一起動手烤小餅乾', icon: '🍪', cost: 30 },
           { id: 'r_m_3', title: '挑選一套可愛蛋仔貼紙文具', icon: '🎀', cost: 25 },
           { id: 'r_m_4', title: '假日去兒童遊樂園暢玩', icon: '🎡', cost: 55 }
@@ -1394,16 +1394,21 @@
               bryant: { ...DEFAULT_STUDENT_STATS.bryant, ...parsed.bryant },
               melody: { ...DEFAULT_STUDENT_STATS.melody, ...parsed.melody }
             };
-            const melodyOldWish = studentStats.melody.rewards.find(reward => reward.id === 'r_m_1' && reward.title === '週末草莓霜淇淋一支');
-            if (melodyOldWish) {
-              melodyOldWish.title = '一週免洗碗';
-              melodyOldWish.icon = '🍽️';
-              localStorage.setItem('star_quiz_island_stats_v3', JSON.stringify(studentStats));
-            }
-            const oldWish = studentStats.bryant.rewards.find(reward => reward.id === 'r_b_3' && reward.title === '全家吃美味冰淇淋聖代');
-            if (oldWish) {
-              oldWish.title = '一週免洗碗';
-              oldWish.icon = '🍽️';
+            // 同步既有裝置儲存的預設獎勵，同時保留自訂獎勵與金幣紀錄。
+            const rewardUpdates = [
+              ['bryant', 'r_b_1', '週五放鬆玩 iPad 1 小時', '🎮', 30],
+              ['bryant', 'r_b_3', '一次免洗碗', '🍽️', 15],
+              ['melody', 'r_m_1', '一次免洗碗', '🍽️', 15]
+            ];
+            let rewardsChanged = false;
+            rewardUpdates.forEach(([student, id, title, icon, cost]) => {
+              const reward = studentStats[student].rewards.find(item => item.id === id);
+              if (reward && (reward.title !== title || reward.icon !== icon || reward.cost !== cost)) {
+                Object.assign(reward, { title, icon, cost });
+                rewardsChanged = true;
+              }
+            });
+            if (rewardsChanged) {
               localStorage.setItem('star_quiz_island_stats_v3', JSON.stringify(studentStats));
             }
             return;
