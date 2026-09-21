@@ -4219,6 +4219,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const stats = studentStats[currentStudent];
       const isBryant = currentStudent === 'bryant';
 
+      document.getElementById('rewards-owner-tag').textContent = isBryant ? 'Bryant' : 'Melody';
       document.getElementById('rewards-modal-stars').textContent = stats.stars;
       document.getElementById('vouchers-count').textContent = stats.vouchers.length;
 
