@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>智慧星空探險隊 🌟 Bryant & Melody 互動測驗樂園</title>
+  <title>智慧星空探險隊 🌟 Bryant、Melody 與 Ani 互動測驗樂園</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600;700;800&family=Noto+Sans+TC:wght@400;500;700;900&family=Chango&display=swap" rel="stylesheet">
   <script>
@@ -150,6 +150,55 @@
       border-radius: 32px;
       box-shadow: 0 20px 45px rgba(255, 180, 0, 0.28);
     }
+
+    /* 禹安的原創競技場風格：高飽和藍紫、金色星芒與厚描邊。 */
+    body.theme-ani {
+      color: #FFFDF5;
+      background-color: #18215C;
+      background-image: radial-gradient(circle at 15% 12%, #4657B7 0, transparent 32%),
+        radial-gradient(circle at 87% 77%, #813AAB 0, transparent 36%),
+        repeating-linear-gradient(135deg, transparent 0 39px, rgba(255,255,255,.04) 40px 42px);
+    }
+    .theme-ani header {
+      background: rgba(23, 25, 80, .96);
+      border-bottom: 4px solid #FFD242;
+      box-shadow: 0 5px 0 #101135;
+    }
+    .theme-ani #btn-ani .text-left > div:first-child { color: #221443; }
+    .theme-ani #btn-ani .text-left > div:last-child { color: #3D2768; }
+    .theme-ani .roblox-panel {
+      background: linear-gradient(145deg, #27347F, #20205C);
+      border: 3px solid #10143D;
+      border-radius: 22px;
+      box-shadow: 0 8px 0 #0C1035, 0 14px 22px rgba(8,9,43,.28);
+    }
+    .theme-ani #welcome-banner {
+      background: radial-gradient(circle at 82% 18%, #FFDA43 0, #FFB02F 15%, transparent 16%),
+        linear-gradient(125deg, #6042C5 0%, #3153C2 54%, #174492 100%);
+      border-color: #FFD642;
+    }
+    .theme-ani #unit-header-card {
+      background: linear-gradient(120deg, #6439B7, #3154C6) !important;
+      border-color: #FFD642 !important;
+    }
+    .theme-ani .roblox-btn-3d, .theme-ani .roblox-btn-blue-3d {
+      background: linear-gradient(#FFE067, #FFA524);
+      color: #251544;
+      border: 2px solid #803715;
+      box-shadow: 0 5px 0 #723515;
+      border-radius: 14px;
+    }
+    .theme-ani .roblox-btn-3d:active, .theme-ani .roblox-btn-blue-3d:active {
+      transform: translateY(3px);
+      box-shadow: 0 2px 0 #723515;
+    }
+    .theme-ani .modal-box {
+      background: #26317D;
+      color: #FFFFFF;
+      border: 4px solid #FFD642;
+      box-shadow: 0 10px 0 #10143D, 0 22px 36px rgba(0,0,0,.4);
+    }
+    .theme-ani #quiz-coin-rules { color: #FFE58B; }
 
     /* ===== Lucas 的 MINECRAFT (麥塊) 主題樣式 ===== */
     body.theme-lucas {
@@ -326,18 +375,24 @@
 </style>
 <style>
 #student-toggle-wrapper { gap: 12px; padding: 10px; max-width: 100%; }
-#btn-bryant, #btn-melody { min-height: 64px; padding: 12px 20px; font-size: 18px; gap: 12px; }
-#btn-bryant > span, #btn-melody > span { font-size: 28px; }
-#btn-bryant .text-left > div:last-child, #btn-melody .text-left > div:last-child { font-size: 11px; margin-top: 5px; }
+#btn-bryant, #btn-melody, #btn-ani { min-height: 64px; padding: 12px 15px; font-size: 16px; gap: 9px; flex-shrink: 0; }
+#btn-bryant > span, #btn-melody > span, #btn-ani > span { font-size: 26px; }
+#btn-bryant .text-left > div:last-child, #btn-melody .text-left > div:last-child, #btn-ani .text-left > div:last-child { font-size: 11px; margin-top: 5px; }
+@media (max-width: 1100px) {
+ header > div { flex-wrap: wrap; gap: 12px; }
+ #student-toggle-wrapper { width: 100%; justify-content: space-between; overflow-x: auto; }
+}
 @media (max-width: 640px) {
- #student-toggle-wrapper { gap: 8px; padding: 8px; }
- #btn-bryant, #btn-melody { min-height: 58px; padding: 10px 12px; font-size: 15px; gap: 8px; }
- #btn-bryant > span, #btn-melody > span { font-size: 24px; }
+ #student-toggle-wrapper { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)) 28px; gap: 3px; padding: 6px; overflow: visible; }
+ #btn-bryant, #btn-melody, #btn-ani { min-width: 0; min-height: 58px; padding: 4px 2px; font-size: 12px; gap: 0; flex-direction: column; justify-content: center; }
+ #btn-bryant > span, #btn-melody > span, #btn-ani > span { font-size: 20px; }
+ #btn-bryant .text-left, #btn-melody .text-left, #btn-ani .text-left { text-align: center; }
+ #btn-bryant .text-left > div:last-child, #btn-melody .text-left > div:last-child, #btn-ani .text-left > div:last-child { display: none; }
+ #btn-sound { margin-left: 0; padding: 3px; }
+ .theme-ani #welcome-banner { background: linear-gradient(145deg, #5140AF, #2E55B8); }
 }
 @media (max-width: 380px) {
- #student-toggle-wrapper { gap: 6px; padding: 6px; }
- #btn-bryant, #btn-melody { padding: 10px 8px; font-size: 14px; }
- #btn-sound { margin-left: 0; padding: 6px; }
+ #btn-bryant, #btn-melody, #btn-ani { font-size: 11px; }
 }
 </style>
 </head>
@@ -345,7 +400,7 @@
 
   <!-- 頂端導航與小主人切換 -->
   <header class="sticky top-0 z-30 backdrop-blur-md transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+    <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between gap-4">
       
       <!-- Logo 標題 -->
       <div class="flex items-center gap-3 cursor-pointer" onclick="goHome()">
@@ -361,7 +416,7 @@
         </div>
       </div>
 
-      <!-- 兄妹切換區 (Bryant 6年級 / Melody 4年級) -->
+      <!-- 三位學生的獨立學習入口 -->
       <div class="flex items-center gap-2 p-1.5 rounded-2xl bg-black/30 border-2 border-white/10" id="student-toggle-wrapper">
         <!-- Bryant 按鈕 -->
         <button id="btn-bryant" onclick="switchStudent('bryant')" 
@@ -374,12 +429,22 @@
         </button>
 
         <!-- Melody 按鈕 -->
-        <button id="btn-melody" onclick="switchStudent('melody')" 
+        <button id="btn-melody" onclick="switchStudent('melody')"
           class="flex items-center gap-2 px-3 py-1.5 rounded-xl font-bold text-xs md:text-sm text-slate-400 hover:text-white transition-all duration-200">
           <span class="text-xl">👧</span>
           <div class="text-left">
             <div class="leading-tight">Melody 小芸</div>
             <div class="text-[9px] text-rose-300 font-bold">小學四年級</div>
+          </div>
+        </button>
+
+        <!-- 禹安 Ani 按鈕 -->
+        <button id="btn-ani" onclick="switchStudent('ani')"
+          class="flex items-center gap-2 px-3 py-1.5 rounded-xl font-bold text-xs md:text-sm text-slate-400 hover:text-white transition-all duration-200">
+          <span class="text-xl">⭐</span>
+          <div class="text-left">
+            <div class="leading-tight">Ani 禹安</div>
+            <div class="text-[9px] text-amber-300 font-bold">小學六年級 • 競技場</div>
           </div>
         </button>
 
@@ -670,6 +735,8 @@
         </div>
       </div>
 
+      <p id="quiz-coin-rules" class="text-xs font-bold text-amber-300 mb-4">金幣規則：答對 +1，答錯 −5；錯題訂正答對不加金幣。</p>
+
       <!-- 題目主卡片 -->
       <div id="quiz-card-container" class="roblox-panel p-6 md:p-8 relative overflow-hidden mb-5">
         <div class="flex items-center gap-2 mb-3">
@@ -724,7 +791,7 @@
         <!-- 分數計數卡片 -->
         <div class="grid grid-cols-3 gap-3 max-w-md mx-auto mb-6">
           <div class="bg-black/30 border border-white/10 rounded-xl p-3">
-            <div class="text-xs text-amber-400 font-bold mb-1">獲得獎勵</div>
+            <div class="text-xs text-amber-400 font-bold mb-1">本次金幣變動</div>
             <div id="result-stars" class="text-2xl font-black text-amber-300">+0 🪙</div>
           </div>
           <div class="bg-black/30 border border-white/10 rounded-xl p-3">
@@ -768,6 +835,30 @@
     </div>
 
   </main>
+
+  <!-- 單元測驗開始前的金幣規則提醒 -->
+  <div id="quiz-rules-modal" role="dialog" aria-modal="true" aria-labelledby="quiz-rules-title" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="modal-box w-full max-w-md p-6 md:p-7 shadow-2xl modal-pop">
+      <div class="flex items-start justify-between gap-3 mb-4">
+        <div>
+          <div id="quiz-rules-icon" class="text-3xl mb-2">🪙</div>
+          <h2 id="quiz-rules-title" class="text-xl font-black">測驗前，先看金幣規則</h2>
+          <p id="quiz-rules-unit-name" class="text-sm font-bold mt-1 opacity-80"></p>
+        </div>
+        <button type="button" onclick="closeQuizRules()" aria-label="關閉金幣規則提醒" class="text-xl font-black px-2 opacity-70 hover:opacity-100">✕</button>
+      </div>
+      <div class="space-y-3 text-sm font-bold">
+        <p class="rounded-xl border-l-4 border-emerald-500 bg-emerald-500/10 p-3">✅ 每答對 1 題，加 1 個金幣。</p>
+        <p class="rounded-xl border-l-4 border-rose-500 bg-rose-500/10 p-3">❌ 每答錯 1 題，扣 5 個金幣。</p>
+        <p class="rounded-xl border-l-4 border-amber-500 bg-amber-500/10 p-3">📖 錯題庫訂正答對不加金幣；再答錯仍扣 5 個。</p>
+      </div>
+      <p class="text-xs mt-4 opacity-80">金幣不足時會顯示負數，之後得到的金幣會先抵扣。</p>
+      <div class="flex gap-3 mt-6">
+        <button type="button" onclick="closeQuizRules()" class="flex-1 py-2.5 rounded-xl border border-current/30 font-black">再看一下</button>
+        <button id="btn-confirm-quiz-rules" type="button" onclick="confirmQuizRules()" class="flex-1 py-2.5 bg-[#00A2FF] hover:bg-sky-400 text-white font-black rounded-xl">我知道了，開始測驗</button>
+      </div>
+    </div>
+  </div>
 
   <!-- 💡 單元精華學習卡彈窗 (Study Card Modal) -->
   <div id="study-card-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4">
@@ -998,6 +1089,7 @@
         <button id="tab-honor-quizzes" onclick="switchHonorTab('quizzes')" class="flex-1 py-2 rounded-lg font-black text-xs md:text-sm text-slate-400 hover:text-white transition">
           📝 測驗紀錄 (<span id="tab-quiz-count">0</span>)
         </button>
+
         <button id="tab-honor-exams" onclick="switchHonorTab('exams')" class="flex-1 py-2 rounded-lg font-black text-xs md:text-sm bg-white/20 text-white shadow-sm transition flex items-center justify-center gap-1.5">
           <span>📈</span> 段考定期評量成績單 (<span id="tab-exam-count">0</span>)
         </button>
@@ -1270,10 +1362,12 @@
     let userAnswers = [];
     let sessionStars = 0;
     let viewingStudyCardUnit = null; // 當前正在檢視的學習卡單元
+    let pendingQuizUnit = null; // 確認金幣規則後才開始的單元測驗
     let currentTutorQuestion = null; // 當前 AI 導師正在討論的題目物件
     let selectedAIGenSubject = 'chinese'; // AI 出題機選定科目
     let bryantSkinIndex = 0; // Bryant 外觀神裝樣式：0=冒險隊長, 1=賽博霓虹神裝, 2=黃金王者披風
     let melodySkinIndex = 0;  // Melody 外觀神裝樣式：0=萌兔經典, 1=彩虹仙子翅膀, 2=璀璨星光公主
+    let aniSkinIndex = 0;     // Ani 原創競技場造型
 
     // ===== 學生資料儲存與持久化管理 =====
     const STATS_STORAGE_KEY = 'star_quiz_island_stats_v4';
@@ -1318,8 +1412,16 @@
         exams: [],
         awards: [],
         quizHistory: [],
-        completedUnitIds: []
+        completedUnitIds: ['m_kang_115_4a_chinese_01']
       }
+    };
+    // 禹安共用六年級教材與家庭獎勵種類，但所有作答、金幣、照片及榮譽獨立存放。
+    DEFAULT_STUDENT_STATS.ani = {
+      ...JSON.parse(JSON.stringify(DEFAULT_STUDENT_STATS.bryant)),
+      rewards: DEFAULT_STUDENT_STATS.bryant.rewards.map(reward => ({
+        ...reward, id: reward.id.replace('r_b_', 'r_a_')
+      })),
+      completedUnitIds: []
     };
 
     let studentStats = JSON.parse(JSON.stringify(DEFAULT_STUDENT_STATS));
@@ -1335,13 +1437,24 @@
           if (parsed && parsed.bryant && parsed.melody) {
             studentStats = {
               bryant: { ...DEFAULT_STUDENT_STATS.bryant, ...parsed.bryant },
-              melody: { ...DEFAULT_STUDENT_STATS.melody, ...parsed.melody }
+              melody: { ...DEFAULT_STUDENT_STATS.melody, ...parsed.melody },
+              ani: { ...DEFAULT_STUDENT_STATS.ani, ...(parsed.ani || {}) }
             };
+            // 已由家長確認完成的單元，也要補進既有裝置的存檔，保留其他完成紀錄。
+            for (const student of ['bryant', 'melody', 'ani']) {
+              const savedIds = studentStats[student].completedUnitIds;
+              studentStats[student].completedUnitIds = [...new Set([
+                ...DEFAULT_STUDENT_STATS[student].completedUnitIds,
+                ...(Array.isArray(savedIds) ? savedIds : [])
+              ])];
+            }
             // 同步既有裝置儲存的預設獎勵，同時保留自訂獎勵與金幣紀錄。
             const rewardUpdates = [
               ['bryant', 'r_b_1', '週五放鬆玩 iPad 1 小時', '🎮', 30],
               ['bryant', 'r_b_3', '一次免洗碗', '🍽️', 15],
-              ['melody', 'r_m_1', '一次免洗碗', '🍽️', 15]
+              ['melody', 'r_m_1', '一次免洗碗', '🍽️', 15],
+              ['ani', 'r_a_1', '週五放鬆玩 iPad 1 小時', '🎮', 30],
+              ['ani', 'r_a_3', '一次免洗碗', '🍽️', 15]
             ];
             let rewardsChanged = false;
             rewardUpdates.forEach(([student, id, title, icon, cost]) => {
@@ -1422,7 +1535,7 @@
         imgEl.src = '';
         imgEl.classList.add('hidden');
         placeholder.classList.remove('hidden');
-        placeholder.textContent = currentStudent === 'bryant' ? '👦' : '👧';
+        placeholder.textContent = currentStudent === 'melody' ? '👧' : '👦';
       }
     }
 
@@ -1477,7 +1590,7 @@
       AudioEngine.playClick();
       currentTutorQuestion = questionObj;
       const modal = document.getElementById('ai-tutor-modal');
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
       const avatarIcon = document.getElementById('ai-tutor-avatar-icon');
       const studentTag = document.getElementById('ai-tutor-student-tag');
@@ -1489,8 +1602,8 @@
       if (isBryant) {
         avatarIcon.textContent = '🤖';
         avatarIcon.className = 'w-11 h-11 rounded-2xl bg-gradient-to-tr from-sky-600 to-blue-600 text-white flex items-center justify-center text-2xl shadow-md';
-        studentTag.textContent = 'Bryant 六年級專屬導師';
-        tutorTitle.textContent = 'Blox 傳奇解題導師在線 🎮';
+        studentTag.textContent = currentStudent === 'ani' ? 'Ani 禹安六年級專屬導師' : 'Bryant 六年級專屬導師';
+        tutorTitle.textContent = currentStudent === 'ani' ? '星光競技場解題教練在線 ⭐' : 'Blox 傳奇解題導師在線 🎮';
         bubbleAvatar.textContent = '🤖';
       } else {
         avatarIcon.textContent = '🐣';
@@ -1520,7 +1633,7 @@
 
     async function sendAITutorPrompt(userQuestionText) {
       if (!currentTutorQuestion) return;
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const q = currentTutorQuestion;
       const responseContent = document.getElementById('ai-tutor-response-content');
       const sendBtn = document.getElementById('btn-send-ai-tutor');
@@ -1535,8 +1648,11 @@
       sendBtn.disabled = true;
 
       // 依兄妹不同設定專屬 System Instruction
-      const systemPrompt = isBryant
-        ? `你是一位專為國小六年級男學生 Bryant 服務的頂級家教「Roblox Blox 冒險導師」。
+      const systemPrompt = currentStudent === 'ani'
+        ? `你是一位專為國小六年級學生禹安 Ani 服務的星光競技場家教。
+           性格：活潑、耐心，善用合作、精準出招與闖關比喻，不比較孩子的成績。
+           要求：用台灣繁體中文解釋觀念，先給清楚步驟，再用一句鼓勵作結。`
+        : isBryant ? `你是一位專為國小六年級男學生 Bryant 服務的頂級家教「Roblox Blox 冒險導師」。
            性格：熱血、幽默、擅長用 Roblox、Obby 跑酷、電競、升等以及生活中的酷炫比喻來解釋概念。
            要求：用適合小學六年級的語氣，言簡意賅，重點清晰，排版分點條列，並在結尾給予一句熱血的鼓勵！`
         : `你是一位專為國小四年級女學生 Melody 服務的溫暖家教「蛋仔派對 萌兔智慧小精靈」。
@@ -1596,11 +1712,11 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     function openAIGeneratorModal() {
       AudioEngine.playClick();
       const modal = document.getElementById('ai-generator-modal');
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const studentBadge = document.getElementById('ai-gen-student-badge');
 
       if (studentBadge) {
-        studentBadge.textContent = isBryant ? '六年級 Blox 專屬關卡生成' : '四年級 蛋仔派對專屬關卡生成';
+        studentBadge.textContent = currentStudent === 'ani' ? '六年級 Ani 星光關卡生成' : isBryant ? '六年級 Blox 專屬關卡生成' : '四年級 蛋仔派對專屬關卡生成';
       }
 
       document.getElementById('ai-gen-loading-box').classList.add('hidden');
@@ -1645,7 +1761,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     async function executeAIGenerateQuiz() {
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const gradeText = isBryant ? '台灣小學六年級' : '台灣小學四年級';
       const subjectNames = {
         chinese: '國語文領域（含成語、修辭、詞義與閱讀理解）',
@@ -1746,8 +1862,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     const lastPersonalEnergy = {};
     function buildLocalPersonalEnergy(student) {
       const stats = studentStats[student];
-      const name = student === 'bryant' ? '有朋' : '小芸';
-      const messages = student === 'bryant' ? [
+      const name = student === 'ani' ? '禹安' : student === 'bryant' ? '有朋' : '小芸';
+      const messages = student !== 'melody' ? [
         '把難題拆成小步驟，每完成一步，就離通關更近！',
         '先看懂題意再出發，細心驗算就是你的通關裝備！',
         '錯題是下一關的提示，弄懂原因就能升級自己的實力！',
@@ -1785,7 +1901,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       let timer;
       try {
         const payload = {
-          contents: [{ parts: [{ text: `請為${student === 'bryant' ? '六年級有朋 Bryant' : '四年級小芸 Melody'}寫一句30到50字的溫暖學習鼓勵。已連續簽到${stats.streakDays}天。使用台灣繁體中文，避免比較成績與壓力。輸出純文字兩行：第一行鼓勵；第二行爸媽悄悄話。` }] }]
+          contents: [{ parts: [{ text: `請為${student === 'ani' ? '六年級禹安 Ani' : student === 'bryant' ? '六年級有朋 Bryant' : '四年級小芸 Melody'}寫一句30到50字的溫暖學習鼓勵。已連續簽到${stats.streakDays}天。使用台灣繁體中文，避免比較成績與壓力。輸出純文字兩行：第一行鼓勵；第二行爸媽悄悄話。` }] }]
         };
         const result = await Promise.race([
           callGeminiAPI(payload),
@@ -1823,6 +1939,12 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         '潮流蛋幣到手！好想跟萌友一起吃草莓霜淇淋！🍦',
         '雙蛋搭檔不怕失敗，牽手滾蛋再來一次！💪',
         '好耶！今天又跟好搭檔學會好多新知識啦！🌸'
+      ],
+      ani: [
+        'Ani 星光隊員：先看觀念，再精準出招！⭐',
+        '禹安，把每一道題當成新的競技場，慢慢讀也能漂亮過關！',
+        '細心檢查是最強絕招，今天也要穩穩累積實力！🏆',
+        '星星夥伴已就位，準備好挑戰下一關！'
       ]
     };
 
@@ -1850,6 +1972,11 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
           sub: '保持衝勁與耐心，今天也是向滿分前進的一天！'
         }
       ],
+      ani: [
+        { text: '「真正厲害的選手，會先看清題目，再決定怎麼出招。」', sub: '禹安，穩穩理解，比搶快更重要！' },
+        { text: '「今天答錯的題，是下次漂亮通關的線索。」', sub: '把錯題弄懂，你就又比昨天進步一點。' },
+        { text: '「一課一課完成，星光競技場的實力就會慢慢累積。」', sub: '爸媽為你認真思考的樣子加油！' }
+      ],
       melody: [
         {
           text: '「碰碰滾滾向前衝！跌倒了就咕嚕嚕爬起來，小蛋仔永遠活力滿滿！🍳」',
@@ -1876,11 +2003,12 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
     let quoteIndices = {
       bryant: 0,
-      melody: 0
+      melody: 0,
+      ani: 0
     };
 
     function updateDailyQuote(forceNext = false) {
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const quotes = DAILY_QUOTES[currentStudent] || [];
       if (quotes.length === 0) return;
 
@@ -1905,7 +2033,15 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         authorDisplay.innerHTML = `<span>✨ 爸媽悄悄話：</span><span>${q.sub}</span>`;
       }
 
-      if (isBryant) {
+      if (currentStudent === 'ani') {
+        if (card) card.className = 'roblox-panel p-5 md:p-6 mb-8 relative overflow-hidden transition-all duration-300 text-white';
+        if (iconBadge) { iconBadge.className = 'w-12 h-12 md:w-14 md:h-14 rounded-xl bg-amber-400 text-indigo-950 border-2 border-indigo-950 flex items-center justify-center text-2xl md:text-3xl shrink-0 shadow-md'; iconBadge.textContent = '⭐'; }
+        if (catTag) { catTag.className = 'text-[11px] font-black px-2.5 py-0.5 rounded-md bg-amber-400 text-indigo-950'; catTag.textContent = 'ANI 今日星光能量'; }
+        if (targetTag) { targetTag.className = 'text-xs font-bold text-amber-200'; targetTag.textContent = '給禹安的專屬鼓勵'; }
+        if (textDisplay) textDisplay.className = 'text-lg md:text-2xl lg:text-3xl font-black leading-snug text-white';
+        if (rerollBtn) rerollBtn.className = 'px-4 py-2.5 bg-amber-400 hover:bg-amber-300 text-indigo-950 font-black text-xs md:text-sm rounded-xl transition-all flex items-center gap-2 shadow-md';
+        if (rerollText) rerollText.textContent = '換一句能量';
+      } else if (isBryant) {
         if (card) {
           card.className = 'roblox-panel p-5 md:p-6 mb-8 relative overflow-hidden transition-all duration-300 border-2 border-amber-500/40 bg-gradient-to-r from-[#1C1F26] via-[#222733] to-[#1C1F26] shadow-xl text-white';
         }
@@ -1955,7 +2091,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     function rerollDailyQuote() {
-      if (currentStudent === 'bryant') {
+      if (currentStudent !== 'melody') {
         AudioEngine.playClick();
       } else {
         AudioEngine.playEggyBoing();
@@ -2198,6 +2334,32 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
           <line x1="150" y1="130" x2="185" y2="130" stroke="${bot.eye}" stroke-width="2" stroke-dasharray="3 3" opacity="0.8" />
         </svg>
       `;
+    }
+
+    // Ani 專屬原創星芒隊員，使用競技場色彩但不使用遊戲角色素材。
+    function getAniArenaSVG(skinIdx = aniSkinIndex) {
+      const skins = [
+        { hood: '#3389F4', vest: '#E84F67', glow: '#FFD23F', glove: '#FFB039' },
+        { hood: '#773DE0', vest: '#32C8B6', glow: '#77F4E8', glove: '#FFDA4A' },
+        { hood: '#F58632', vest: '#6946CE', glow: '#FFEA61', glove: '#FF5E74' }
+      ];
+      const s = skins[skinIdx % skins.length];
+      return `<svg viewBox="0 0 360 300" width="100%" height="100%" role="img" aria-label="Ani 的原創星光隊員造型" xmlns="http://www.w3.org/2000/svg">
+        <defs><radialGradient id="ani-aura"><stop stop-color="${s.glow}" stop-opacity=".65"/><stop offset="1" stop-color="${s.glow}" stop-opacity="0"/></radialGradient></defs>
+        <circle cx="180" cy="154" r="145" fill="url(#ani-aura)"/>
+        <path d="M180 11 203 82 277 57 252 129 338 153 258 175 284 251 207 226 180 293 151 225 75 251 102 174 21 153 104 128 80 57 154 82Z" fill="${s.glow}" stroke="#24204D" stroke-width="7" opacity=".94"/>
+        <ellipse cx="181" cy="281" rx="80" ry="12" fill="#171847" opacity=".45"/>
+        <path d="M108 268q9-76 72-77 67 0 75 77Z" fill="${s.vest}" stroke="#23204F" stroke-width="9"/>
+        <path d="M131 111q-9-56 48-70 60 13 52 70l-13 62H144Z" fill="${s.hood}" stroke="#23204F" stroke-width="9"/>
+        <rect x="129" y="91" width="102" height="96" rx="43" fill="#FBD5AC" stroke="#23204F" stroke-width="8"/>
+        <path d="M129 111q8-64 51-65 43 1 51 65l-20-15-31 8-30-8Z" fill="${s.hood}" stroke="#23204F" stroke-width="7"/>
+        <path d="M151 132q10-8 20 0m17 0q10-8 20 0" stroke="#25214D" stroke-width="6" fill="none" stroke-linecap="round"/>
+        <path d="M171 154q10 9 21 0" stroke="#8C3C50" stroke-width="4" fill="none" stroke-linecap="round"/>
+        <circle cx="114" cy="215" r="27" fill="${s.glove}" stroke="#23204F" stroke-width="8"/>
+        <circle cx="247" cy="213" r="27" fill="${s.glove}" stroke="#23204F" stroke-width="8"/>
+        <path d="M179 207 187 222 204 223 192 235 196 252 180 243 165 252 168 235 156 223 173 222Z" fill="${s.glow}" stroke="#23204F" stroke-width="3"/>
+        <text x="180" y="285" text-anchor="middle" font-family="Fredoka, sans-serif" font-size="14" font-weight="900" fill="#23204F">ANI ★</text>
+      </svg>`;
     }
 
     // 繪製 Melody 與萌友夥伴「雙蛋仔並肩作戰」高畫質向量 SVG
@@ -2455,7 +2617,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     function pokeCharacter() {
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const quotes = CHARACTER_QUOTES[currentStudent] || [];
       const randomQuote = quotes[Math.floor(Math.random() * quotes.length)] || '今天也要全力以赴！';
       
@@ -2464,7 +2626,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const bubbleEmoji = document.getElementById('bubble-emoji');
 
       bubbleText.textContent = randomQuote;
-      bubbleEmoji.textContent = isBryant ? '🎮' : '🍳';
+      bubbleEmoji.textContent = currentStudent === 'ani' ? '⭐' : isBryant ? '🎮' : '🍳';
 
       bubble.classList.remove('animate-bubble-pop');
       void bubble.offsetWidth;
@@ -2479,11 +2641,15 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     function toggleCharacterSkin() {
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const bubble = document.getElementById('character-speech-bubble');
       const bubbleText = document.getElementById('bubble-text');
 
-      if (isBryant) {
+      if (currentStudent === 'ani') {
+        aniSkinIndex = (aniSkinIndex + 1) % 3;
+        bubbleText.textContent = ['星光隊員換上藍色戰衣！⭐', '薄荷星光造型已登場！✨', '橘金冠軍裝備準備就緒！🏆'][aniSkinIndex];
+        AudioEngine.playTone(880, 'triangle', 0.15, 0.2);
+      } else if (isBryant) {
         bryantSkinIndex = (bryantSkinIndex + 1) % 3;
         const skinNames = ['【經典】極速隊長 & 鈦藍戰甲', '【賽博】炫光護目 & 紫曜機甲', '【傳奇】王者披風 & 熾金帝皇'];
         bubbleText.textContent = `雙人裝備同步升級！已換上：${skinNames[bryantSkinIndex]} ⚡`;
@@ -2500,7 +2666,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     function triggerCharacterDance() {
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const stage = document.getElementById('character-stage-svg');
       const bubbleText = document.getElementById('bubble-text');
 
@@ -2510,7 +2676,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         stage.classList.add('animate-character-dance');
       }
 
-      if (isBryant) {
+      if (currentStudent === 'ani') {
+        bubbleText.textContent = '⭐ Ani 星光隊員：漂亮通關，下一題繼續保持細心！';
+      } else if (isBryant) {
         bubbleText.textContent = '🔥 雙人合體！360° 終極通關勝利旋轉！戰力狂飆！';
       } else {
         bubbleText.textContent = '🍳 雙蛋合體超絕滾蛋大滿貫！金冠非我們莫屬！🎉';
@@ -2521,12 +2689,16 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     function interactWithPet() {
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const bubble = document.getElementById('character-speech-bubble');
       const bubbleText = document.getElementById('bubble-text');
       const bubbleEmoji = document.getElementById('bubble-emoji');
 
-      if (isBryant) {
+      if (currentStudent === 'ani') {
+        bubbleEmoji.textContent = '⭐';
+        bubbleText.textContent = '星星夥伴已就位，禹安準備好挑戰下一關！';
+        AudioEngine.playTone(1046, 'triangle', 0.08, 0.2);
+      } else if (isBryant) {
         bubbleEmoji.textContent = '🤖';
         bubbleText.textContent = '「嗶嗶！戰鬥機器人夥伴反應爐已全開！隊長隨時可出擊！」⚡';
         AudioEngine.playTone(1046, 'square', 0.08, 0.2);
@@ -2543,7 +2715,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     function updateCharacterDisplay() {
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const container = document.getElementById('character-stage-svg');
       const nametag = document.getElementById('character-nametag-title');
       const bubble = document.getElementById('character-speech-bubble');
@@ -2563,7 +2735,25 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
       if (!container) return;
 
-      if (isBryant) {
+      if (currentStudent === 'ani') {
+        container.innerHTML = getAniArenaSVG(aniSkinIndex);
+        nametag.className = 'inline-block px-3.5 py-1 rounded-xl text-xs font-black bg-amber-300 text-indigo-950 border-2 border-indigo-950 shadow-md';
+        nametag.textContent = '⭐ 六年級星光競技場 • 禹安 Ani';
+        bubble.className = 'animate-bubble-pop cursor-pointer mb-1.5 px-4 py-2 rounded-2xl text-xs md:text-sm font-black shadow-lg transition-all transform hover:scale-105 active:scale-95 flex items-center gap-1.5 border-2 max-w-[280px] text-center bg-indigo-900 text-white border-amber-300';
+        bubbleEmoji.textContent = '⭐';
+        bubbleText.textContent = 'Ani 星光隊員：先看觀念，再精準出招！';
+        if (rankBadge) {
+          rankBadge.className = 'mb-2 px-3 py-1.5 rounded-xl bg-indigo-950 border-2 border-amber-300 shadow-md flex items-center gap-2 text-xs font-black text-white';
+          rankIcon.textContent = '🏆';
+          rankTitle.className = 'font-black text-amber-300';
+          rankExp.className = 'font-bold text-white';
+          rankBar.className = 'h-full bg-gradient-to-r from-amber-300 to-orange-500 rounded-full transition-all duration-500';
+        }
+        if (btnSkinLabel) btnSkinLabel.textContent = '星光造型';
+        if (btnDanceLabel) btnDanceLabel.textContent = '勝利歡呼';
+        if (btnPetIcon) btnPetIcon.textContent = '⭐';
+        if (btnPetLabel) btnPetLabel.textContent = '星星夥伴';
+      } else if (isBryant) {
         container.innerHTML = getBryantRobloxSVG(bryantSkinIndex);
         nametag.className = 'inline-block px-3.5 py-1 rounded-xl text-xs font-black bg-black/60 text-sky-300 border border-sky-400/30 shadow-md backdrop-blur-sm';
         nametag.innerHTML = '🎮 六年級 Blox 探險雙星 • Bryant & 戰甲搭檔';
@@ -2622,9 +2812,11 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const title = document.getElementById('rank-badge-title');
       const exp = document.getElementById('rank-badge-exp');
       const bar = document.getElementById('rank-badge-bar');
-      if (title) title.textContent = currentStudent === 'bryant'
-        ? `ROBLOX ${level === 0 ? '新手' : '探險家'} • LV.${level}`
-        : `【蛋仔${level === 0 ? '新手' : '探險家'}】• LV.${level}`;
+      if (title) title.textContent = currentStudent === 'ani'
+        ? `星光${level === 0 ? '新秀' : '高手'} • LV.${level}`
+        : currentStudent === 'bryant'
+          ? `ROBLOX ${level === 0 ? '新手' : '探險家'} • LV.${level}`
+          : `【蛋仔${level === 0 ? '新手' : '探險家'}】• LV.${level}`;
       if (exp) exp.textContent = `答對 ${progress} / 30 題`;
       if (bar) bar.style.width = `${Math.round(progress / 30 * 100)}%`;
     }
@@ -2754,7 +2946,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         setTimeout(() => this.playTone(1046.5, 'triangle', 0.25, 0.35), 240);
       },
       playWrong() {
-        if (currentStudent === 'bryant') {
+        if (currentStudent === 'ani') {
+          this.playTone(190, 'sawtooth', 0.16, 0.18);
+        } else if (currentStudent === 'bryant') {
           this.playRobloxOof();
         } else {
           this.playEggyFall();
@@ -3190,12 +3384,17 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
 
+    const ANI_SUBJECT_TITLES = {
+      chinese: '國語星光擂台', english: '英文單字對決', math: '數學精準出招',
+      science: '自然探索競技場', social: '社會知識爭霸'
+    };
+
     function renderSubjectsGrid() {
       const grid = document.getElementById('subjects-grid');
       if (!grid) return;
       grid.innerHTML = '';
 
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const subjectKeys = ['chinese', 'english', 'math', 'science', 'social'];
 
       subjectKeys.forEach(subjectKey => {
@@ -3216,14 +3415,14 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
                 <span class="text-sky-400">${meta.badge}</span>
               </div>
               <h4 class="font-black text-base md:text-lg mb-2 text-white group-hover:text-emerald-300 transition-colors leading-snug">
-                ${meta.robloxTitle}
+                ${currentStudent === 'ani' ? ANI_SUBJECT_TITLES[subjectKey] : meta.robloxTitle}
               </h4>
               <p class="text-xs text-slate-400 leading-relaxed mb-4">
-                ${meta.robloxDesc}
+                ${currentStudent === 'ani' ? `沿用六年級${meta.name}教材，讀學習卡、挑戰 30 題關卡！` : meta.robloxDesc}
               </p>
             </div>
             <button onclick="event.stopPropagation(); openUnitsView('${subjectKey}')" class="w-full py-2.5 bg-[#00B06F] hover:bg-[#00C87E] text-white font-black rounded-xl roblox-btn-3d text-xs md:text-sm flex items-center justify-center gap-2">
-              <span>▶</span> 選擇單元 (STAGES)
+              <span>${currentStudent === 'ani' ? '⭐' : '▶'}</span> ${currentStudent === 'ani' ? '選擇競技關卡' : '選擇單元 (STAGES)'}
             </button>
           `;
         } else {
@@ -3272,7 +3471,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     function openUnitsView(subjectKey) {
       AudioEngine.playClick();
       currentSubjectKey = subjectKey;
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const meta = SUBJECT_METADATA[subjectKey];
       const studentData = CURRICULUM_DATA[currentStudent];
       const subjectData = (studentData && studentData.subjects) ? studentData.subjects[subjectKey] : null;
@@ -3285,10 +3484,10 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       document.getElementById('view-results').classList.add('hidden');
 
       document.getElementById('unit-breadcrumb-subject').textContent = meta.name;
-      document.getElementById('unit-subject-badge').textContent = isBryant ? meta.badge : meta.eggyBadge;
+      document.getElementById('unit-subject-badge').textContent = currentStudent === 'ani' ? 'ANI 六年級星光擂台' : isBryant ? meta.badge : meta.eggyBadge;
       document.getElementById('unit-grade-badge').textContent = studentData.gradeName;
-      document.getElementById('unit-subject-name').textContent = isBryant ? meta.robloxTitle : meta.eggyTitle;
-      document.getElementById('unit-subject-desc').textContent = isBryant ? meta.robloxDesc : meta.eggyDesc;
+      document.getElementById('unit-subject-name').textContent = currentStudent === 'ani' ? ANI_SUBJECT_TITLES[subjectKey] : isBryant ? meta.robloxTitle : meta.eggyTitle;
+      document.getElementById('unit-subject-desc').textContent = currentStudent === 'ani' ? `六年級${meta.name}：每一課先讀學習卡，再挑戰 30 題！` : isBryant ? meta.robloxDesc : meta.eggyDesc;
       document.getElementById('unit-subject-icon').textContent = meta.icon;
 
       const headerCard = document.getElementById('unit-header-card');
@@ -3327,7 +3526,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
                 <span class="flex items-center gap-1.5 text-xs text-slate-400 font-bold">${completed ? '<span class="rounded-md border border-emerald-400/50 bg-emerald-500/20 px-1.5 py-0.5 text-emerald-200">✓ 已完成</span>' : ''}${unit.questions.length} 道關卡題</span>
               </div>
               <h4 class="font-black text-base text-white mb-1.5 leading-snug">${unit.name}</h4>
-              <p class="text-xs text-slate-400 leading-relaxed mb-4">掌握核心解題觀念，通關解鎖 Blox 榮譽！</p>
+              <p class="text-xs text-slate-400 leading-relaxed mb-4">${currentStudent === 'ani' ? '掌握核心觀念，細心完成星光競技挑戰！' : '掌握核心解題觀念，通關解鎖 Blox 榮譽！'}</p>
             </div>
 
             <!-- 雙按鈕：觀念學習卡 + 實戰闖關 -->
@@ -3337,8 +3536,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
                 <span>💡</span> 先讀觀念學習卡 (STUDY)
               </button>
               ` : ''}
-              <button onclick="event.stopPropagation(); startQuiz(CURRICULUM_DATA['${currentStudent}'].subjects['${subjectKey}'].units[${idx}])" class="w-full py-2.5 bg-[#00A2FF] hover:bg-sky-400 text-white font-black rounded-xl roblox-btn-blue-3d text-xs md:text-sm flex items-center justify-center gap-1.5">
-                <span>⚡</span> 開始測驗挑戰 (ENTER)
+              <button onclick="event.stopPropagation(); showQuizRules(CURRICULUM_DATA['${currentStudent}'].subjects['${subjectKey}'].units[${idx}])" class="w-full py-2.5 bg-[#00A2FF] hover:bg-sky-400 text-white font-black rounded-xl roblox-btn-blue-3d text-xs md:text-sm flex items-center justify-center gap-1.5">
+                <span>${currentStudent === 'ani' ? '⭐' : '⚡'}</span> ${currentStudent === 'ani' ? '開始星光挑戰' : '開始測驗挑戰 (ENTER)'}
               </button>
             </div>
           `;
@@ -3362,7 +3561,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
                 <span>💡</span> 蛋仔隨身學習卡 (STUDY)
               </button>
               ` : ''}
-              <button onclick="event.stopPropagation(); startQuiz(CURRICULUM_DATA['${currentStudent}'].subjects['${subjectKey}'].units[${idx}])" class="w-full py-2.5 eggy-btn-pink font-black text-xs md:text-sm flex items-center justify-center gap-1.5">
+              <button onclick="event.stopPropagation(); showQuizRules(CURRICULUM_DATA['${currentStudent}'].subjects['${subjectKey}'].units[${idx}])" class="w-full py-2.5 eggy-btn-pink font-black text-xs md:text-sm flex items-center justify-center gap-1.5">
                 <span>🎯</span> 開始滾蛋衝刺 (START)
               </button>
             </div>
@@ -3399,7 +3598,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const meta = SUBJECT_METADATA[res.subjectKey];
       viewingStudyCardUnit = unit;
 
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const modal = document.getElementById('study-card-modal');
       const ownerTag = document.getElementById('study-card-owner-tag');
       const subjectTag = document.getElementById('study-card-subject-tag');
@@ -3409,11 +3608,15 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const startBtn = document.getElementById('btn-study-card-start-quiz');
 
       if (isBryant) {
-        ownerTag.className = 'text-[10px] bg-red-600 text-white font-black px-2 py-0.5 rounded';
-        ownerTag.textContent = 'ROBLOX 攻略晶片';
+        ownerTag.className = currentStudent === 'ani'
+          ? 'text-[10px] bg-amber-400 text-indigo-950 font-black px-2 py-0.5 rounded'
+          : 'text-[10px] bg-red-600 text-white font-black px-2 py-0.5 rounded';
+        ownerTag.textContent = currentStudent === 'ani' ? 'ANI 觀念攻略' : 'ROBLOX 攻略晶片';
         subjectTag.textContent = meta ? meta.name : '學科核心觀念';
-        modalIcon.textContent = '💡';
-        startBtn.className = 'px-5 py-2 bg-[#00B06F] hover:bg-[#00C87E] text-white font-black rounded-xl shadow-md transition flex items-center gap-1.5';
+        modalIcon.textContent = currentStudent === 'ani' ? '⭐' : '💡';
+        startBtn.className = currentStudent === 'ani'
+          ? 'px-5 py-2 roblox-btn-3d font-black rounded-xl shadow-md transition flex items-center gap-1.5'
+          : 'px-5 py-2 bg-[#00B06F] hover:bg-[#00C87E] text-white font-black rounded-xl shadow-md transition flex items-center gap-1.5';
       } else {
         ownerTag.className = 'text-[10px] bg-[#FFE600] text-amber-950 font-black px-2 py-0.5 rounded-full border border-amber-400';
         ownerTag.textContent = '蛋仔派對 隨身卡';
@@ -3492,7 +3695,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (viewingStudyCardUnit) {
         const u = viewingStudyCardUnit;
         closeStudyCard();
-        startQuiz(u);
+        showQuizRules(u);
       }
     }
 
@@ -3503,6 +3706,35 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     }
 
     // ===== 測驗進行核心流程 =====
+    function showQuizRules(unit) {
+      if (!unit || !Array.isArray(unit.questions)) return;
+      pendingQuizUnit = unit;
+      document.getElementById('quiz-rules-unit-name').textContent = unit.name || '單元測驗';
+      document.getElementById('quiz-rules-icon').textContent = currentStudent === 'melody' ? '🟡' : currentStudent === 'ani' ? '⭐' : '🪙';
+      document.getElementById('btn-confirm-quiz-rules').className = currentStudent === 'ani'
+        ? 'flex-1 py-2.5 roblox-btn-3d font-black rounded-xl'
+        : currentStudent === 'bryant' ? 'flex-1 py-2.5 bg-[#00A2FF] hover:bg-sky-400 text-white font-black rounded-xl'
+        : 'flex-1 py-2.5 eggy-btn-pink font-black rounded-full';
+      const modal = document.getElementById('quiz-rules-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      document.getElementById('btn-confirm-quiz-rules').focus();
+    }
+
+    function closeQuizRules() {
+      const modal = document.getElementById('quiz-rules-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+      pendingQuizUnit = null;
+    }
+
+    function confirmQuizRules() {
+      if (!pendingQuizUnit) return;
+      const unit = pendingQuizUnit;
+      closeQuizRules();
+      startQuiz(unit);
+    }
+
     function startQuiz(unit) {
       AudioEngine.playClick();
       currentUnitKey = unit.id;
@@ -3513,7 +3745,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       userAnswers = [];
       sessionStars = 0;
 
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const currencyIconEl = document.getElementById('quiz-currency-icon');
       if (currencyIconEl) currencyIconEl.textContent = isBryant ? '🪙' : '🟡';
 
@@ -3523,6 +3755,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       document.getElementById('view-quiz').classList.remove('hidden');
 
       document.getElementById('quiz-current-stars').textContent = '0';
+      document.getElementById('quiz-coin-rules').textContent = currentUnitKey.startsWith('retry_')
+        ? '錯題訂正：答對不加金幣，答錯扣 5 個金幣。'
+        : '金幣規則：答對 +1，答錯 −5；錯題訂正答對不加金幣。';
       renderCurrentQuestion();
       window.scrollTo({ top: 0, behavior: 'smooth' });
     }
@@ -3534,7 +3769,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       }
 
       const q = currentQuestions[currentQuestionIndex];
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
       const total = currentQuestions.length;
       const current = currentQuestionIndex + 1;
       const pct = Math.round((current / total) * 100);
@@ -3544,8 +3779,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       document.getElementById('quiz-progress-bar').style.width = `${pct}%`;
 
       document.getElementById('question-unit-tag').textContent = `STAGE ${String(current).padStart(2, '0')}`;
-      document.getElementById('question-difficulty-tag').textContent = isBryant 
-        ? '難度：六年級 Blox 大師題' 
+      document.getElementById('question-difficulty-tag').textContent = isBryant
+        ? currentStudent === 'ani' ? '難度：六年級星光競技題' : '難度：六年級 Blox 大師題'
         : '難度：四年級 蛋仔衝刺題';
       document.getElementById('question-text').textContent = q.question;
 
@@ -3592,7 +3827,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
       const q = currentQuestions[currentQuestionIndex];
       const isCorrect = selectedIndex === q.correctIndex;
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
+      const isMistakeRetry = currentUnitKey.startsWith('retry_');
+      const coinChange = isCorrect ? (isMistakeRetry ? 0 : 1) : -5;
 
       userAnswers.push({
         question: q,
@@ -3600,9 +3837,10 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         isCorrect: isCorrect
       });
 
+      sessionStars += coinChange;
+      studentStats[currentStudent].stars = (Number(studentStats[currentStudent].stars) || 0) + coinChange;
+
       if (isCorrect) {
-        sessionStars += 1;
-        studentStats[currentStudent].stars += 1;
         studentStats[currentStudent].totalCorrect = (studentStats[currentStudent].totalCorrect || 0) + 1;
         studentStats[currentStudent].mistakes = (studentStats[currentStudent].mistakes || []).filter(m => m.id !== q.id);
         AudioEngine.playCorrect();
@@ -3648,7 +3886,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         if (isBryant) {
           feedbackBox.className = 'mt-6 p-4 rounded-2xl border-2 border-emerald-500/50 bg-emerald-950/40 text-emerald-300 transition-all';
           fbIcon.textContent = '🎉';
-          fbTitle.textContent = 'STAGE 通關！太強了，完美過關！';
+          fbTitle.textContent = currentStudent === 'ani' ? '⭐ 星光出招成功！保持細心！' : 'STAGE 通關！太強了，完美過關！';
         } else {
           feedbackBox.className = 'mt-6 p-4 rounded-2xl border-2 border-emerald-300 bg-emerald-50 text-emerald-800 transition-all';
           fbIcon.textContent = '🌟';
@@ -3658,7 +3896,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         if (isBryant) {
           feedbackBox.className = 'mt-6 p-4 rounded-2xl border-2 border-rose-500/50 bg-rose-950/40 text-rose-300 transition-all';
           fbIcon.textContent = '💀';
-          fbTitle.textContent = 'OOF! 踩到陷阱啦！快看下方詳解！';
+          fbTitle.textContent = currentStudent === 'ani' ? '再看一次詳解，下一題穩穩來！' : 'OOF! 踩到陷阱啦！快看下方詳解！';
         } else {
           feedbackBox.className = 'mt-6 p-4 rounded-2xl border-2 border-rose-300 bg-rose-50 text-rose-800 transition-all';
           fbIcon.textContent = '🍳';
@@ -3666,7 +3904,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         }
       }
 
-      fbExp.innerHTML = `<span class="font-bold">正確解答：${q.options[q.correctIndex]}</span><br><span class="mt-1 block opacity-90">${q.explanation}</span>`;
+      fbExp.innerHTML = `<span class="font-bold">${coinChange > 0 ? '+1 個金幣' : coinChange < 0 ? '扣 5 個金幣' : '錯題訂正不加金幣'}</span><br><span class="font-bold">正確解答：${q.options[q.correctIndex]}</span><br><span class="mt-1 block opacity-90">${q.explanation}</span>`;
       feedbackBox.classList.remove('hidden');
 
       document.getElementById('btn-next-question').classList.remove('hidden');
@@ -3686,8 +3924,11 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       AudioEngine.playClick();
       currentStudent = studentKey;
       const isBryant = studentKey === 'bryant';
+      const isAni = studentKey === 'ani';
 
-      if (isBryant) {
+      if (isAni) {
+        document.body.className = 'theme-ani antialiased relative selection:bg-amber-400 selection:text-indigo-950';
+      } else if (isBryant) {
         document.body.className = 'theme-roblox antialiased relative selection:bg-sky-500 selection:text-white';
       } else {
         document.body.className = 'theme-melody antialiased relative selection:bg-yellow-300';
@@ -3695,14 +3936,18 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
       const btnBryant = document.getElementById('btn-bryant');
       const btnMelody = document.getElementById('btn-melody');
+      const btnAni = document.getElementById('btn-ani');
 
-      if (btnBryant && btnMelody) {
+      if (btnBryant && btnMelody && btnAni) {
         btnBryant.className = isBryant 
           ? 'flex items-center gap-2 px-3 py-1.5 rounded-xl font-black text-xs md:text-sm bg-gradient-to-r from-red-600 to-rose-600 text-white shadow-md transform scale-105 transition-all'
           : 'flex items-center gap-2 px-3 py-1.5 rounded-xl font-bold text-xs md:text-sm text-slate-400 hover:text-white transition-all';
         
-        btnMelody.className = !isBryant
+        btnMelody.className = studentKey === 'melody'
           ? 'flex items-center gap-2 px-3 py-1.5 rounded-full font-black text-xs md:text-sm bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 text-amber-950 shadow-md transform scale-105 transition-all border-2 border-yellow-200'
+          : 'flex items-center gap-2 px-3 py-1.5 rounded-xl font-bold text-xs md:text-sm text-slate-400 hover:text-white transition-all';
+        btnAni.className = isAni
+          ? 'flex items-center gap-2 px-3 py-1.5 rounded-xl font-black text-xs md:text-sm bg-gradient-to-r from-amber-300 to-orange-400 text-indigo-950 border-2 border-amber-100 shadow-md transform scale-105 transition-all'
           : 'flex items-center gap-2 px-3 py-1.5 rounded-xl font-bold text-xs md:text-sm text-slate-400 hover:text-white transition-all';
       }
 
@@ -3711,7 +3956,18 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const logoBox = document.getElementById('nav-logo-box');
       const gradeBadge = document.getElementById('nav-grade-badge');
 
-      if (isBryant) {
+      if (isAni) {
+        if (brandTitle) brandTitle.textContent = 'Ani 禹安・星光競技場';
+        if (gradeBadge) {
+          gradeBadge.className = 'text-[11px] bg-amber-400 text-indigo-950 font-black px-2 py-0.5 rounded-md tracking-wider';
+          gradeBadge.textContent = 'BRAWL 風格挑戰';
+        }
+        if (brandSub) brandSub.textContent = '五科同場較勁，讀懂觀念再出招！⭐';
+        if (logoBox) {
+          logoBox.className = 'w-11 h-11 bg-amber-400 rounded-xl border-2 border-indigo-950 flex items-center justify-center text-2xl font-black text-indigo-950 shadow-md transform -rotate-6';
+          logoBox.textContent = '★';
+        }
+      } else if (isBryant) {
         if (brandTitle) brandTitle.textContent = 'ROBLOX 智慧探險島';
         if (gradeBadge) {
           gradeBadge.className = 'text-[11px] bg-red-600 text-white font-black px-2 py-0.5 rounded-md tracking-wider';
@@ -3743,7 +3999,15 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const currencyLabel = document.getElementById('currency-label');
       const photoContainer = document.getElementById('student-photo-container');
 
-      if (isBryant) {
+      if (isAni) {
+        if (banner) banner.className = 'roblox-panel p-6 md:p-8 text-white relative overflow-hidden mb-8 transition-all duration-300';
+        if (bannerBadge) bannerBadge.textContent = 'ANI ARENA • 六年級知識擂台';
+        if (bannerTitle) bannerTitle.textContent = '⭐ 禹安 Ani 的五科星光挑戰';
+        if (bannerSubtitle) bannerSubtitle.textContent = '和有朋同一套六年級教材與 30 題單元，成績由 Ani 自己累積。先讀學習卡，再細心作答！';
+        if (bannerBgIcon) bannerBgIcon.textContent = '⭐';
+        if (currencyLabel) currencyLabel.textContent = 'Ani 金幣：';
+        if (photoContainer) photoContainer.className = 'relative group w-20 h-20 md:w-24 md:h-24 shrink-0 rounded-2xl overflow-hidden border-4 border-amber-300 bg-[#29347D] shadow-md flex items-center justify-center transition-all';
+      } else if (isBryant) {
         if (banner) banner.className = 'roblox-panel p-6 md:p-8 text-white relative overflow-hidden mb-8 transition-all duration-300';
         if (bannerBadge) bannerBadge.textContent = 'ROBLOX EXPERIENCE • 小六衝刺服';
         if (bannerTitle) bannerTitle.textContent = "[🔥UPDATE] Bryant & 機器人 知識大冒險 Obby";
@@ -3773,8 +4037,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const stats = studentStats[currentStudent];
       const today = syncCheckInState(stats);
       const checkInLabel = document.getElementById('btn-quick-checkin-label');
-      if (checkInLabel) checkInLabel.textContent = `${today.slice(5).replace('-', '/')} ${stats.checkedToday ? '已簽到 ✅' : currentStudent === 'bryant' ? '每日簽到領金幣' : '每日簽到領星星'}`;
-      const isBryant = currentStudent === 'bryant';
+      if (checkInLabel) checkInLabel.textContent = `${today.slice(5).replace('-', '/')} ${stats.checkedToday ? '已簽到 ✅' : currentStudent !== 'melody' ? '每日簽到領金幣' : '每日簽到領星星'}`;
+      const isBryant = currentStudent !== 'melody';
       const starsEl = document.getElementById('stars-count');
       const streakEl = document.getElementById('streak-count');
       const mistakesEl = document.getElementById('mistakes-count');
@@ -3841,12 +4105,13 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       });
       saveStats();
 
-      const isBryant = currentStudent === 'bryant';
-      const studentName = isBryant ? 'Bryant' : 'Melody';
-      document.getElementById('result-student-cheer').textContent = isBryant
-        ? `隊長 ${studentName}，關卡結算完畢，經驗值巨量提升！`
+      const isBryant = currentStudent !== 'melody';
+      const studentName = currentStudent === 'ani' ? 'Ani 禹安' : isBryant ? 'Bryant' : 'Melody';
+      document.getElementById('result-student-cheer').textContent = currentStudent === 'ani'
+        ? `${studentName}，星光挑戰完成！記得回顧錯題，下一場更穩。`
+        : isBryant ? `隊長 ${studentName}，關卡結算完畢，經驗值巨量提升！`
         : `蛋仔小英雄 ${studentName}，賽道通關！拿到滿滿的潮流蛋幣！`;
-      document.getElementById('result-stars').textContent = `+${correctCount} ${isBryant ? '🪙' : '🟡'}`;
+      document.getElementById('result-stars').textContent = `${sessionStars > 0 ? '+' : ''}${sessionStars} ${isBryant ? '🪙' : '🟡'}`;
       document.getElementById('result-accuracy').textContent = `${accuracy}%`;
       document.getElementById('result-correct-count').textContent = `${correctCount} / ${total}`;
       document.getElementById('result-wrong-num').textContent = wrongCount;
@@ -3876,7 +4141,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     function renderReviewItems(filterOnlyMistakes = false) {
       const listContainer = document.getElementById('review-list');
       listContainer.innerHTML = '';
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
       const itemsToDisplay = filterOnlyMistakes 
         ? userAnswers.filter(a => !a.isCorrect) 
@@ -3968,7 +4233,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (subject && subject.units) {
         const unit = subject.units.find(u => u.id === currentUnitKey);
         if (unit) {
-          startQuiz(unit);
+          showQuizRules(unit);
           return;
         }
       }
@@ -3981,9 +4246,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const modal = document.getElementById('notebook-modal');
       const title = document.getElementById('notebook-owner-title');
       const container = document.getElementById('notebook-items');
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
-      title.textContent = isBryant ? 'Bryant 的 Blox 錯題訂正本' : 'Melody 的專屬錯題筆記本';
+      title.textContent = currentStudent === 'ani' ? 'Ani 禹安的星光錯題本' : isBryant ? 'Bryant 的 Blox 錯題訂正本' : 'Melody 的專屬錯題筆記本';
       container.innerHTML = '';
 
       const mistakes = studentStats[currentStudent].mistakes;
@@ -4092,7 +4357,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (!silent) AudioEngine.playClick();
       const modal = document.getElementById('checkin-modal');
       const stats = studentStats[currentStudent];
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
       const today = syncCheckInState(stats);
       const displayDate = today.replaceAll('-', '/');
@@ -4215,9 +4480,9 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
     function updateRewardsUI() {
       const stats = studentStats[currentStudent];
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
-      document.getElementById('rewards-owner-tag').textContent = isBryant ? 'Bryant' : 'Melody';
+      document.getElementById('rewards-owner-tag').textContent = currentStudent === 'ani' ? 'Ani 禹安' : isBryant ? 'Bryant' : 'Melody';
       document.getElementById('rewards-modal-stars').textContent = stats.stars;
       document.getElementById('vouchers-count').textContent = stats.vouchers.length;
 
@@ -4298,10 +4563,10 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (!target || stats.stars < target.cost) return;
 
       stats.stars -= target.cost;
-      const studentName = currentStudent === 'bryant' ? 'Bryant' : 'Melody';
+      const studentName = currentStudent === 'ani' ? 'Ani 禹安' : currentStudent === 'bryant' ? 'Bryant' : 'Melody';
       const now = new Date();
       const timeStr = `${now.getMonth() + 1}月${now.getDate()}日 ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-      const randomCode = (currentStudent === 'bryant' ? 'BLOX-' : 'STAR-') + Math.random().toString(36).substring(2, 6).toUpperCase();
+      const randomCode = (currentStudent === 'ani' ? 'ANI-' : currentStudent === 'bryant' ? 'BLOX-' : 'STAR-') + Math.random().toString(36).substring(2, 6).toUpperCase();
 
       stats.vouchers.unshift({
         id: 'v_' + Date.now(),
@@ -4349,14 +4614,20 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
     function openHonorModal(tab = 'exams') {
       AudioEngine.playClick();
       const modal = document.getElementById('honor-modal');
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
       const mainTitle = document.getElementById('honor-modal-main-title');
       const ownerTag = document.getElementById('honor-owner-tag');
       const subTitle = document.getElementById('honor-modal-sub-title');
       const icon = document.getElementById('honor-modal-icon');
 
-      if (isBryant) {
+      if (currentStudent === 'ani') {
+        mainTitle.textContent = 'Ani 禹安的星光榮譽榜與段考戰績';
+        ownerTag.className = 'text-xs bg-amber-400 text-indigo-950 font-black px-2 py-0.5 rounded-md';
+        ownerTag.textContent = 'Ani • 星光競技場';
+        subTitle.textContent = '記錄禹安每次段考與學校榮譽，五科都能穩穩進步！';
+        icon.textContent = '⭐';
+      } else if (isBryant) {
         mainTitle.textContent = 'Bryant 的學習榮譽殿堂 & 段考戰績';
         ownerTag.className = 'text-xs bg-red-600 text-white font-bold px-2 py-0.5 rounded-md';
         ownerTag.textContent = 'Bryant • Blox Hall of Fame';
@@ -4450,7 +4721,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (!list) return;
 
       list.innerHTML = '';
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
       if (exams.length === 0) {
         list.innerHTML = `
@@ -4544,7 +4815,7 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       if (!list) return;
 
       list.innerHTML = '';
-      const isBryant = currentStudent === 'bryant';
+      const isBryant = currentStudent !== 'melody';
 
       if (awards.length === 0) {
         list.innerHTML = `
@@ -4784,7 +5055,8 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 
     window.onload = function() {
       loadStats();
-      switchStudent('bryant');
+      const requestedStudent = new URLSearchParams(window.location.search).get('student');
+      switchStudent(['bryant', 'melody', 'ani'].includes(requestedStudent) ? requestedStudent : 'bryant');
       updateDailyQuote();
     };
   </script>
@@ -4801,5 +5073,10 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
 <script src="data/extra-questions.js"></script>
 <script src="data/math-extra-questions.js"></script>
 <script src="data/exam-ranges.js"></script>
+<script>
+  // 在全部六年級題庫補齊後複製，保持 5 科 30 題內容一致；姓名改為 Ani。
+  CURRICULUM_DATA.ani = JSON.parse(JSON.stringify(CURRICULUM_DATA.bryant).replace(/Bryant/g, 'Ani'));
+  CURRICULUM_DATA.ani.title = '六年級星光競技場挑戰者';
+</script>
 </body>
 </html>
