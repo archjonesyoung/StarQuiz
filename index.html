@@ -1296,7 +1296,8 @@
         vouchers: [],
         exams: [],
         awards: [],
-        quizHistory: []
+        quizHistory: [],
+        completedUnitIds: ['b_hanlin_115_6a_01', 'b_hanlin_115_6a_02', 'b_hanlin_115_6a_03']
       },
       melody: {
         photo: null,
@@ -1316,7 +1317,8 @@
         vouchers: [],
         exams: [],
         awards: [],
-        quizHistory: []
+        quizHistory: [],
+        completedUnitIds: []
       }
     };
 
@@ -3253,6 +3255,20 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       });
     }
 
+    function isUnitCompleted(studentKey, subjectKey, unit) {
+      const stats = studentStats[studentKey];
+      if (!stats) return false;
+      if ((stats.completedUnitIds || []).includes(unit.id)) return true;
+      return (stats.quizHistory || []).some(record =>
+        (record.unitId === unit.id || (
+          !record.unitId &&
+          record.total > 0 &&
+          record.subject === SUBJECT_METADATA[subjectKey]?.name &&
+          record.unitName === unit.name
+        ))
+      );
+    }
+
     function openUnitsView(subjectKey) {
       AudioEngine.playClick();
       currentSubjectKey = subjectKey;
@@ -3299,14 +3315,16 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       units.forEach((unit, idx) => {
         const uCard = document.createElement('div');
         const hasStudyCard = !!unit.studyCard;
+        const completed = isUnitCompleted(currentStudent, subjectKey, unit);
 
         if (isBryant) {
           uCard.className = 'roblox-panel p-5 flex flex-col justify-between border-2 border-[#333845] bg-[#1C1F26] hover:border-sky-400 transition-all card-bounce relative';
           uCard.innerHTML = `
+            ${completed ? '<div class="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden" aria-hidden="true"><span class="-rotate-12 text-5xl font-black whitespace-nowrap" style="color:rgba(52,211,153,0.16)">已完成</span></div>' : ''}
             <div>
               <div class="flex items-center justify-between mb-2">
                 <span class="text-[10px] font-black uppercase px-2 py-0.5 rounded bg-sky-500/20 text-sky-300 border border-sky-500/30">${unit.badge || 'STAGE 0' + (idx + 1)}</span>
-                <span class="text-xs text-slate-400 font-bold">${unit.questions.length} 道關卡題</span>
+                <span class="flex items-center gap-1.5 text-xs text-slate-400 font-bold">${completed ? '<span class="rounded-md border border-emerald-400/50 bg-emerald-500/20 px-1.5 py-0.5 text-emerald-200">✓ 已完成</span>' : ''}${unit.questions.length} 道關卡題</span>
               </div>
               <h4 class="font-black text-base text-white mb-1.5 leading-snug">${unit.name}</h4>
               <p class="text-xs text-slate-400 leading-relaxed mb-4">掌握核心解題觀念，通關解鎖 Blox 榮譽！</p>
@@ -3327,10 +3345,11 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
         } else {
           uCard.className = 'eggy-panel p-5 flex flex-col justify-between border-3 border-amber-300 bg-white hover:border-pink-300 transition-all card-bounce relative';
           uCard.innerHTML = `
+            ${completed ? '<div class="pointer-events-none absolute inset-0 flex items-center justify-center overflow-hidden" aria-hidden="true"><span class="-rotate-12 text-5xl font-black whitespace-nowrap" style="color:rgba(219,39,119,0.13)">已完成</span></div>' : ''}
             <div>
               <div class="flex items-center justify-between mb-2">
                 <span class="text-[10px] font-black px-2.5 py-0.5 rounded-full bg-pink-100 text-pink-700 border border-pink-200">${unit.badge || '分賽場 #' + (idx + 1)}</span>
-                <span class="text-xs text-amber-800 font-bold">${unit.questions.length} 題搶分賽</span>
+                <span class="flex items-center gap-1.5 text-xs text-amber-800 font-bold">${completed ? '<span class="rounded-full border border-pink-300 bg-pink-100 px-1.5 py-0.5 text-pink-700">✓ 已完成</span>' : ''}${unit.questions.length} 題搶分賽</span>
               </div>
               <h4 class="font-black text-base text-slate-900 mb-1.5 leading-snug">${unit.name}</h4>
               <p class="text-xs text-slate-600 leading-relaxed mb-4">避開陷阱機關，奪取本場金皇冠！</p>
@@ -3802,11 +3821,21 @@ ${q.options.map((opt, i) => `${i + 1}. ${opt}`).join('\n')}
       const wrongCount = total - correctCount;
       const accuracy = Math.round((correctCount / total) * 100);
 
+      const curriculumUnit = CURRICULUM_DATA[currentStudent]?.subjects?.[currentSubjectKey]?.units
+        ?.find(unit => unit.id === currentUnitKey);
+      const completedCurriculumUnit = curriculumUnit && total === curriculumUnit.questions.length;
+      if (completedCurriculumUnit) {
+        const completedUnitIds = studentStats[currentStudent].completedUnitIds ||
+          (studentStats[currentStudent].completedUnitIds = []);
+        if (!completedUnitIds.includes(curriculumUnit.id)) completedUnitIds.push(curriculumUnit.id);
+      }
+
       const history = studentStats[currentStudent].quizHistory || (studentStats[currentStudent].quizHistory = []);
       history.unshift({
         completedAt: new Date().toISOString(),
         subject: SUBJECT_METADATA[currentSubjectKey]?.name || '綜合練習',
         unitName: currentQuizName,
+        unitId: completedCurriculumUnit ? curriculumUnit.id : null,
         correct: correctCount,
         total
       });
